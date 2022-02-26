@@ -39,7 +39,7 @@ bin\openssl.exe x509 -req -days 3650 -set_serial 01 ^
 
 type "%CA_CERT%" "%CA_KEY%" > "%MIKROTIK_CA_RESULT%"
 type "%SERVER_CERT%" "%SERVER_KEY%" > "%MIKROTIK_SERVER_RESULT%"
-copy "%SERVER_CERT%" %CLIENT_RESULT%
+copy "%CA_CERT%" %CLIENT_RESULT%
 
 del %CA_KEY% %CA_CERT% %SERVER_KEY% %SERVER_CERT% %SERVER_REQ%
 
