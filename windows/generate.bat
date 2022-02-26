@@ -1,4 +1,4 @@
-REM @echo off
+@echo off
 
 call config.bat
 
@@ -14,7 +14,7 @@ set CLIENT_RESULT="output\client.cer"
 set OPENSSL_CONF=bin\openssl.cnf
 
 
-del %CA_KEY% %CA_CERT% %SERVER_KEY% %SERVER_CERT% %SERVER_REQ% %MIKROTIK_SERVER_RESULT% %MIKROTIK_CA_RESULT% %CLIENT_RESULT%
+del /s %CA_KEY% %CA_CERT% %SERVER_KEY% %SERVER_CERT% %SERVER_REQ% %MIKROTIK_SERVER_RESULT% %MIKROTIK_CA_RESULT% %CLIENT_RESULT% >nul 2>&1
 
 
 REM Creating the Certificate Authority's Certificate and Keys
@@ -42,3 +42,5 @@ type "%SERVER_CERT%" "%SERVER_KEY%" > "%MIKROTIK_SERVER_RESULT%"
 copy "%SERVER_CERT%" %CLIENT_RESULT%
 
 del %CA_KEY% %CA_CERT% %SERVER_KEY% %SERVER_CERT% %SERVER_REQ%
+
+pause
